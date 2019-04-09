@@ -120,7 +120,7 @@
                                     <label class="btn btn-success active">
                                         <input type="radio" name="nonSmoking" id="nonSmoking" autocomplete="off" checked>Non-Smoking
                                     </label>
-                                    <label class="btn btn-danger active">
+                                    <label class="btn btn-danger">
                                         <input type="radio" name="smoking" id="smoking" autocomplete="off">Smoking
                                     </label>
                                 </div> 
@@ -204,6 +204,14 @@
                     <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
+                    <div class="btn-group" id="carouselButton">
+                        <button class="btn btn-danger btn-sm" id="buttonPause">
+                            <span class="fa fa-pause"></span>
+                        </button>
+                        <button class="btn btn-danger btn-sm" id="buttonPlay">
+                            <span class="fa fa-play"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -296,10 +304,25 @@
            </div>
         </div>
     </footer>
+    
 <!-- JQuery first, then Popper.js, then Bootstrap.js -->
 <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#myCarousel").carousel({interval: 2000});
+        $("#buttonPause").click(function(){
+            $("#myCarousel").carousel("pause");
+        });
+        $("#buttonPlay").click(function(){
+            $("#myCarousel").carousel("cycle");
+        });
+
+    });
+    
+</script>
 </body>
 
 </html>
